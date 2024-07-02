@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Api</title>
+    <style>
+        #data img{
+            padding: 30px 0px 0px 30px;
+            width: 250px;
+        }
+        #data{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main{
+            text-align: center;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        /* Topbar Styles */
+        .topbar {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+
+        .topbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .topbar-container .left,
+        .topbar-container .right {
+            display: flex;
+            align-items: center;
+        }
+
+        .topbar-container small {
+            margin-right: 20px;
+            color: #555;
+        }
+
+        .topbar-container .social-icons a {
+            color: #007bff;
+            margin-left: 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .topbar-container .social-icons a:hover {
+            color: #0056b3;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #007bff;
+        }
+
+        .navbar-brand i {
+            margin-right: 10px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-list li {
+            position: relative;
+        }
+
+        .nav-list li a {
+            display: block;
+            padding: 10px 20px;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        .nav-list li a:hover,
+        .nav-list li a.active {
+            color: #007bff;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            padding: 10px 20px;
+            color: #555;
+            white-space: nowrap;
+        }
+
+        .dropdown-content a:hover {
+            color: #007bff;
+        }
+
+        .nav-item.dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .btn-signup {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #ffffff;
+            background-color: #007bff;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-signup:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <div class="topbar-container">
+            <div class="left">
+                <small><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Royal, Sarthana, India</small>
+                <small><i class="far fa-clock text-primary me-2"></i>Mon - Fri: 09.00 AM - 09.00 PM</small>
+            </div>
+            <div class="right">
+                <small><i class="fa fa-phone-alt text-primary me-2"></i>+012 345 6789</small>
+                <div class="social-icons">
+                    <a href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a>
+                    <a href="javascript:void(0);"><i class="fab fa-twitter"></i></a>
+                    <a href="javascript:void(0);"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="javascript:void(0);"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar Start -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a class="navbar-brand">
+                <i class="fa-solid fa-utensils"></i>
+                <h2>Fetch APIs</h2>
+            </a>
+            <ul class="nav-list">
+                <li><a href="javascript:void(0);" class="active">Home</a></li>
+                <li><a href="javascript:void(0);">About</a></li>
+                <li><a href="javascript:void(0);">Services</a></li>
+                <li class="nav-item dropdown">
+                    <a href="javascript:void(0);" class="nav-link dropdown-toggle">Pages</a>
+                    <div class="dropdown-content">
+                        <a href="javascript:void(0);">Page 1</a>
+                        <a href="javascript:void(0);">Page 2</a>
+                        <a href="javascript:void(0);">Page 3</a>
+                        <a href="javascript:void(0);">Page 4</a>
+                    </div>
+                </li>
+                <li><a href="javascript:void(0);">Contact</a></li>
+            </ul>
+            <a href="javascript:void(0);" class="btn-signup">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="main">
+            <div id="data">
+            </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
