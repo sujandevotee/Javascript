@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Analysis Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="serach">
+      <label for="x">Select X:</label>
+      <select name="x" id="x" class="SelectX">
+        <option value="StateName">State</option>
+        <option value="product">Product</option>
+        <option value="subject">Subject</option>
+        <option value="month">Month</option>
+      </select>
+      <label for="y">Select Y:</label>
+      <select name="y" id="y" class="SelectY">
+        <option value="Area">Area</option>
+        <option value="Price">Price</option>
+        <option value="marks">Marks</option>
+        <option value="income">Income</option>
+      </select>
+      <input type="submit" value="Submit" id="submit" />
+    </div>
+    <div class="chart1">
+      <div><h2>State - Area</h2><canvas width="750" height="350" id="myChart"></canvas></div>
+    </div>
+    <div class="chartall">
+      <div class="chart2"><h2>Product - Price</h2><canvas width="560" height="350" id="myChart2"></canvas></div>
+      <div class="chart3"><h2>Months - Income</h2><canvas width="560" height="350" id="myChart3"></canvas></div>
+      <div class="chart4"><h2>Subject - Marks</h2><canvas width="560" height="350" id="myChart4"></canvas></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
