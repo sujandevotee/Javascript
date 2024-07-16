@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="quiz-wrapper">
+        <div class="quiz-container">
+            <div id="quiz-question"></div>
+            <ul>
+                <li>
+                    <input type="radio" class="answer" id="option-a" name="quiz-options">
+                    <label for="option-a" id="text_option_a"></label>
+                </li>
+                <li>
+                    <input type="radio" class="answer" id="option-b" name="quiz-options">
+                    <label for="option-b" id="text_option_b"></label>
+                </li>
+                <li>
+                    <input type="radio" class="answer" id="option-c" name="quiz-options">
+                    <label for="option-c" id="text_option_c"></label>
+                </li>
+                <li>
+                    <input type="radio" class="answer" id="option-d" name="quiz-options">
+                    <label for="option-d" id="text_option_d"></label>
+                </li>
+            </ul>
+            <button id="submit" class="next-btn">Next</button>
+        </div>
+        <div id="quiz-complete" style="display: none;">
+            <p>Quiz Completed!</p>
+            <p>Your score is <span id="quiz-score"></span> out of <span id="quiz-total"></span>.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
