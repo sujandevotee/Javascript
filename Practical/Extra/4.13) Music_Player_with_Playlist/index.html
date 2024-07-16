@@ -10,148 +10,30 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
     <title>Music Player</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* height: 100vh; */
-        margin: 0;
-        background-color: #f0f0f0;
-      }
-      .player {
-        width: 1000px;
-        text-align: center;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-      .controls {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-      }
-      audio {
-        width: 500px;
-        height: 45px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-      }
-      audio::-webkit-media-controls-mute-button {
-        display: none;
-      }
-      audio::-webkit-media-controls-play-button {
-        display: none;
-      }
-      audio::-webkit-media-controls-timeline {
-        padding: 5px;
-        width: 200px;
-      }
-      audio::-webkit-media-controls-current-time-display {
-        padding-left: 10px;
-      }
-      audio::-webkit-media-controls-volume-control-container.closed {
-        display: none;
-      }
-      audio::-webkit-media-controls-volume-control-container {
-        display: none;
-      }
-      .controls {
-        font-size: 33px;
-        cursor: pointer;
-      }
-      .btn-prev,
-      .btn-toggle-play,
-      .btn-next {
-        padding-left: 10px;
-      }
-      button:hover {
-        background-color: #2980b9;
-      }
-      .song-info {
-        margin-top: 20px;
-      }
-      .song-info img {
-        width: 500px;
-        border-radius: 8px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-        margin-bottom: 10px;
-      }
-      h3 {
-        font-size: 30px;
-        padding-bottom: 20px;
-      }
-      p {
-        font-size: 18px;
-        padding: 10px;
-      }
-      .playlist {
-        text-align: left;
-        margin-top: 20px;
-        display: none; /* Initially hidden */
-        max-height: 300px; /* Example: Limiting height for scroll */
-        overflow-y: auto; /* Enable scroll if content exceeds max-height */
-        padding-right: 10px; /* Compensate for scrollbar width */
-      }
-      .playlist.active {
-        display: block; /* Show playlist when active */
-      }
-      .playlist-item {
-        cursor: pointer;
-        padding: 5px 0;
-        display: flex;
-        top: 0;
-        right: 0;
-        align-items: center;
-        font-size: 25px;
-      }
-      .playlist-item:hover {
-        background-color: #f0f0f0;
-      }
-      .shuffle-icon {
-        cursor: pointer;
-        font-size: 24px;
-        margin-left: 10px;
-      }
-      .shuffle-icon.active {
-        color: #2ecc71;
-      }
-      .shuffle-icon:hover {
-        color: #3498db;
-      }
-      .playlist-item-image {
-        width: 80px;
-        border-radius: 8px;
-        margin-bottom: 10px;
-        margin-right: 20px;
-        font-size: 18px;
-      }
-      .playlist-item-info{
-        display: flex;
-        justify-content: space-between;
-        width: 85%;
-      }
-      .delete-icon{
-        left: 0;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="player">
+      <div class="input">
+        <input type="text" id="song-title-input" placeholder="Song Title" />
+        <input type="text" id="song-image-input" placeholder="Image URL" />
+        <input type="text" id="song-path-input" placeholder="Song Path" />
+        <button onclick="addSong()">Add Song</button>
+      </div>
       <div class="song-info">
         <img id="song-image" src="#" alt="Song Image" />
         <h3 id="song-title">Song Title</h3>
       </div>
       <audio id="audio" src="" controls></audio>
       <div class="controls">
+        <span onclick="togglePlaylist()" class="material-symbols-outlined">
+          receipt_long
+        </span>
         <div class="btn-prev" onclick="prevSong()">
           <i class="fa-solid fa-circle-chevron-left"></i>
         </div>
@@ -165,204 +47,12 @@
           id="shuffle-toggle"
           class="shuffle-icon inactive"
           onclick="toggleShuffle()"
-          ><i class="fa-solid fa-shuffle"></i
-        ></span>
+          class="shuffle"><i class="fa-solid fa-shuffle"></i></span>
       </div>
-      <button onclick="togglePlaylist()">All Songs</button>
+    </div>
+    <div>
       <div class="playlist" id="playlist"></div>
     </div>
-
-    <script>
-      const audio = document.getElementById("audio");
-      const playBtn = document.querySelector(".btn-toggle-play");
-      const prevBtn = document.querySelector(".btn-prev");
-      const nextBtn = document.querySelector(".btn-next");
-      const songTitle = document.getElementById("song-title");
-      const songImage = document.getElementById("song-image");
-      const shuffleToggle = document.getElementById("shuffle-toggle");
-      const playlist = document.getElementById("playlist");
-      const songs = [
-        {
-          title: "Warriyo - Mortals",
-          image:
-            "https://avatars.mds.yandex.net/i?id=bb062257ea712f24f71bbfe01e6d91ce5206fad9-12155438-images-thumbs&n=13",
-          path: "songs/1.mp3",
-        },
-        {
-          title: "Cielo - Huma-Huma",
-          image: "https://esx.bigo.sg/eu_live/2u5/0HrPTW.jpg",
-          path: "songs/2.mp3",
-        },
-        {
-          title: "DEAF KEV - Invincible",
-          image:
-            "https://img-android.lisisoft.com/imgmic/8/9/1498-i-com.wSevgiliBul.jpg",
-          path: "songs/3.mp3",
-        },
-        {
-          title: "Different Heaven & EH!DE",
-          image: "http://esx.bigo.sg/live/4h8/1A5ejJ.jpg",
-          path: "songs/4.mp3",
-        },
-        {
-          title: "Janji-Heroes-Tonight-feat",
-          image: "https://pbs.twimg.com/media/DVUSyzSWAAIq_6t.jpg",
-          path: "songs/5.mp3",
-        },
-        {
-          title: "Rabba - Salam-e-Ishq",
-          image:
-            "https://avatars.mds.yandex.net/i?id=81e2681142c6ff01d4f2f3bb65ead016-4893015-images-thumbs&n=13",
-          path: "songs/6.mp3",
-        },
-        {
-          title: "Sakhiyaan - Salam-e-Ishq",
-          image: "https://esx.bigo.sg/live/4hc/110JaO.jpg",
-          path: "songs/7.mp3",
-        },
-        {
-          title: "Bhula Dena - Salam-e-Ishq",
-          image:
-            "https://avatars.mds.yandex.net/i?id=520703477df09c6fdee7cd6e61c2fdd680dcddbc-8272935-images-thumbs&n=13",
-          path: "songs/8.mp3",
-        },
-        {
-          title: "Tumhari Kasam - Salam-e-Ishq",
-          image:
-            "https://i.scdn.co/image/ab67616d00001e02ce41dc261644ae4967792f5d",
-          path: "songs/9.mp3",
-        },
-        {
-          title: "Na Jaana - Salam-e-Ishq",
-          image: "https://img.like.video/asia_live/4h3/1aO5oL.jpg",
-          path: "songs/10.mp3",
-        },
-      ];
-      let currentSongIndex = 0;
-      let shuffleMode = false;
-      let shuffledIndexes = [];
-
-      function loadSong(index) {
-        const song = songs[index];
-        audio.src = song.path;
-        // audio.play();
-        songTitle.textContent = song.title;
-        songImage.src = song.image;
-      }
-
-      function togglePlayPause() {
-        if (audio.paused) {
-          audio.play();
-          playBtn.innerHTML = '<i class="fa-solid fa-circle-pause"></i>';
-        } else {
-          audio.pause();
-          playBtn.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
-        }
-      }
-      function nextSong() {
-        if (shuffleMode) {
-          currentSongIndex = shuffledIndexes.pop();
-        } else {
-          currentSongIndex = (currentSongIndex + 1) % songs.length;
-        }
-        loadSong(currentSongIndex);
-      }
-
-      function prevSong() {
-        if (shuffleMode) {
-          shuffledIndexes.pop(); // Remove current song from shuffle history
-          if (shuffledIndexes.length > 0) {
-            currentSongIndex = shuffledIndexes[shuffledIndexes.length - 1];
-          } else {
-            currentSongIndex = Math.floor(Math.random() * songs.length);
-          }
-        } else {
-          currentSongIndex =
-            (currentSongIndex - 1 + songs.length) % songs.length;
-        }
-        loadSong(currentSongIndex);
-      }
-
-      function toggleShuffle() {
-        shuffleMode = !shuffleMode;
-        if (shuffleMode) {
-          shuffleToggle.classList.remove("inactive");
-          shuffleToggle.classList.add("active");
-          shuffledIndexes = generateShuffledIndexes();
-        } else {
-          shuffleToggle.classList.remove("active");
-          shuffleToggle.classList.add("inactive");
-        }
-      }
-
-      function generateShuffledIndexes() {
-        let indexes = Array.from({ length: songs.length }, (_, index) => index);
-        for (let i = indexes.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [indexes[i], indexes[j]] = [indexes[j], indexes[i]];
-        }
-        return indexes;
-      }
-
-      function togglePlaylist() {
-        playlist.classList.toggle("active");
-      }
-
-      function createPlaylist() {
-  const playlist = document.getElementById("playlist");
-
-  const playlistItems = songs.map((song, index) => {
-    const playlistItem = document.createElement("div");
-    playlistItem.classList.add("playlist-item");
-    playlistItem.innerHTML = `
-      <img src="${song.image}" alt="${song.title}" class="playlist-item-image">
-      <div class="playlist-item-info">
-        <div class="playlist-item-title">${song.title}</div>
-        <div class="delete-icon" title="Delete song">
-          <i class="fas fa-trash-alt"></i>
-        </div>
-      </div>
-    `;
-
-    // Add event listener to delete icon
-    const deleteIcon = playlistItem.querySelector(".delete-icon");
-    deleteIcon.addEventListener("click", (event) => {
-      event.stopPropagation();
-      deleteSong(index);
-    });
-
-    // Add click event listener to load song and toggle playlist
-    playlistItem.addEventListener("click", () => {
-      currentSongIndex = index;
-      loadSong(currentSongIndex);
-      togglePlaylist();
-    });
-
-    return playlistItem;
-  });
-
-  playlist.append(...playlistItems);
-}
-
-// delete song
-function deleteSong(index) {
-  songs.splice(index, 1); 
-  const playlist = document.getElementById("playlist");
-  playlist.innerHTML = ""; 
-
-  createPlaylist();
-}
-
-createPlaylist();
-
-
-      audio.addEventListener("ended", () => {
-        nextSong();
-      });
-
-      window.addEventListener("load", () => {
-        loadSong(currentSongIndex);
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
