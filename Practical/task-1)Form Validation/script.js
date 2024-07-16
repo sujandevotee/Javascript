@@ -49,7 +49,7 @@ form.addEventListener("submit", (e) => {
     successMessage(password2);
   }
 
-  // Check all fields are successfully validation
+  // successfully validation
   if (
     name.parentElement.classList.contains("success") &&
     email.parentElement.classList.contains("success") &&
