@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .chart1 {
+    height: 100%;
+    width: 800px;
+    display: flex;
+    margin: auto;
+    margin-top: 40px;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+  }
+  .chartall{
+    display: flex;
+  }
+  .chart2,.chart3,.chart4 {
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+  }
+  #serach {
+    font-size: 20px;
+    width: 60%;
+    margin: auto;
+    padding-top: 20px;
+  }
+  label {
+    padding-right: 10px;
+  }
+  .SelectX {
+    margin-right: 20px;
+    font-size: 18px;
+    width: 30%;
+  }
+  .SelectY {
+    width: 30%;
+    font-size: 18px;
+  }
+  option {
+    width: 100px;
+  }
+  input {
+    font-size: 18px;
+    width: 100px;
+    margin-left: 20px;
+    background-color: #99cef0;
+  }
+  h2{
+    text-align: center;
+    padding-bottom: 15px;
+  }
