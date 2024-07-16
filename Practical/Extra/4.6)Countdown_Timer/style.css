@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+}
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+background-image: url("https://pixy.org/src2/590/5904792.jpg");
+background-size: cover;
+}
+#countdown {
+font-size: 48px;
+margin: 20px;
+color: brown;
+}
+#container {
+float: right;
+color: white;
+padding-right: 400px;
+padding-top: 350px;
+}
+h1 {
+color: brown;
+margin-bottom: 20px;
+}
+label {
+color: brown;
+font-size: 20px;
+}
+button {
+margin-top: 20px;
+font-size: 18px;
+}
