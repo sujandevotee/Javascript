@@ -15,7 +15,6 @@ let slideIndex = 0;
       }
       setInterval(showSlides, 5000);
 
-      // Next/previous controls
       function plusSlides(n) {
         showSlides(slideIndex += n);
       }
