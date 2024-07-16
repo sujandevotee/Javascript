@@ -73,7 +73,7 @@ let shuffledIndexes = [];
 function loadSong(index) {
   const song = songs[index];
   audio.src = song.path;
-  // audio.play();
+  audio.play();
   songTitle.textContent = song.title;
   songImage.src = song.image;
 }
