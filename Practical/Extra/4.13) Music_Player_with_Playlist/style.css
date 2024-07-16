@@ -146,8 +146,10 @@
   } 
   .btn-prev:hover{
     color: #3e4342;
-
   } 
+  .material-symbols-outlined,.shuffle-icon,.btn-prev,.btn-next,.btn-toggle-play{
+    transition: 0.5s;
+  }
   .btn-toggle-play:hover{
     color: #3e4342;
   } 

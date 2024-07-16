@@ -98,7 +98,7 @@ function nextSong() {
 
 function prevSong() {
   if (shuffleMode) {
-    shuffledIndexes.pop(); // Remove current song from shuffle history
+    shuffledIndexes.pop(); 
     if (shuffledIndexes.length > 0) {
       currentSongIndex = shuffledIndexes[shuffledIndexes.length - 1];
     } else {
@@ -151,14 +151,12 @@ function createPlaylist() {
       </div>
     `;
 
-    // Add event listener to delete icon
     const deleteIcon = playlistItem.querySelector(".delete-icon");
     deleteIcon.addEventListener("click", (event) => {
       event.stopPropagation();
       deleteSong(index);
     });
 
-    // Add click event listener to load song and toggle playlist
     playlistItem.addEventListener("click", () => {
       currentSongIndex = index;
       loadSong(currentSongIndex);
@@ -168,11 +166,7 @@ function createPlaylist() {
     return playlistItem;
   });
 
-  // Append playlist items to the playlist container
   playlist.append(...playlistItems);
-
-  // Apply CSS to hide the scrollbar
-  // playlist.style.overflow = "hidden";
 }
 
 function addSong() {
@@ -185,14 +179,14 @@ function addSong() {
     return;
   }
 
-  // Create new song object
+  // Create new 
   const newSong = {
     title: titleInput,
     image: imageInput,
     path: pathInput,
   };
 
-  // Add new song to playlist
+  // Add song 
   songs.push(newSong);
 
   // Clear input fields
@@ -200,7 +194,6 @@ function addSong() {
   document.getElementById("song-image-input").value = "";
   document.getElementById("song-path-input").value = "";
 
-  // Recreate playlist with updated song list
   const playlist = document.getElementById("playlist");
   playlist.innerHTML = "";
   createPlaylist();
