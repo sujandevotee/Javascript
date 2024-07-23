@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="cart.css" />
+    <link rel="stylesheet" href="../Home/home.css" />
+  </head>
+
+  <body>
+    <div class="nav"></div>
+    <script src="../js/nav.js"></script>
+    <div class="nav"></div>
+    <script src="../js/nav.js"></script>
+    <h1>Shopping Cart</h1>
+    <table class="Shop-table">
+      <thead>
+        <tr>
+          <th>Product Image</th>
+          <th>Product Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items"></tbody>
+    </table>
+    <div class="check">
+      <h2 class="subtotal">Subtotal: $0.00</h2>
+      <button id="checkout-btn">Checkout</button>
+    </div><br><hr>
+    <div class="container">
+      <h2>Terms & Conditions</h2>
+      <div class="policy">
+        <h4>1. PRIVACY PRACTICES</h4>
+        <p>
+          We understand the importance of safeguarding your personal information
+          and we have formulated a Privacy Policy, to ensure that your personal
+          information is sufficiently protected. Apart from these Terms of Use,
+          the Privacy Policy shall also govern your visit and use of the Site.
+          Your continued use of the Site implies that you have read and accepted
+          the Privacy Policy and agree to be bound by its terms and conditions.
+          You consent to the use of personal information by The Shopping Cart in
+          accordance with the terms of and purposes set forth in the Privacy
+          Policy, the same may be subject to amendment from time to time at the
+          sole discretion of The Shopping Cart.
+        </p>
+      </div>
+      <div class="policy">
+        <h4>2. YOUR ACCOUNT</h4>
+        <p>
+          This Site is directed to be used by adults only. We assume that any
+          minor, if at all, accessing our Site is under the supervision of their
+          guardians. The Shopping Cart or its associates do not knowingly
+          collect information from minors. You will be responsible for
+          maintaining confidentiality of your account, password, and restricting
+          access to your computer, and you hereby accept responsibility for all
+          activities that occur under your account and password. You acknowledge
+          that the information you provide, in any manner whatsoever, are not
+          confidential or proprietary and does not infringe any rights of a
+          third party.
+        </p>
+        <p>
+          If you are accessing, browsing and using the Site on someone else’s
+          behalf; you represent that you have the authority to bind that person
+          to all the terms and conditions herein. In the event that the person
+          refuses to be bound as the principal to the Terms of Use, you agree to
+          accept liability for any harm caused by any wrongful use of the Site
+          resulting from such access or use of the Site.
+        </p>
+      </div>
+    </div>
+    <div class="import"></div>
+    <script src="../js/footer.js"></script>
+    <script src="cart.js"></script>
+  </body>
+</html>

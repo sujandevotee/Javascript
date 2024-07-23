@@ -1,0 +1,167 @@
+h1 {
+  text-align: center;
+  padding: 20px;
+}
+.Shop-table {
+  margin: 0 auto;
+}
+thead {
+  background-color: #dc3545;
+  color: white;
+  width: 100%;
+}
+table {
+  width: 65%;
+  font-size: 25px;
+}
+table tr td {
+  text-align: center;
+  padding-top: 20px;
+}
+tbody tr td img {
+  height: 130px;
+  width: 100px;
+  border-radius: 10px;
+}
+.quantity-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.quantity {
+  margin: 0 5px;
+}
+
+.remove-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#cart-items td,
+#cart-items th {
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+#cart-total {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.check {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding-top: 40px;
+  flex-direction: column;
+}
+button {
+  padding: 10px 15px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+button:hover {
+  background-color: #0056b3;
+}
+
+.Shop-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.container h2 {
+  text-align: center;
+  padding-top: 30px;
+}
+.policy h4 {
+  padding-top: 30px;
+}
+.policy p {
+  padding-top: 20px;
+}
+@media (max-width: 768px) {
+  .Shop-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .Shop-table thead,
+  .Shop-table tbody,
+  .Shop-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .Shop-table thead {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .Shop-table tbody {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .Shop-table tr {
+    margin-bottom: 15px;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+
+  .Shop-table td {
+    border: none;
+    text-align: left;
+    width: 100%;
+    padding: 8px;
+  }
+
+  .Shop-table td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    width: 50%;
+    padding-right: 10px;
+    flex: 1 0 50%;
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  .Shop-table td:nth-child(1):before {
+    content: "Product Image";
+  }
+  .Shop-table td:nth-child(2):before {
+    content: "Product Name";
+  }
+  .Shop-table td:nth-child(3):before {
+    content: "Price";
+  }
+  .Shop-table td:nth-child(4):before {
+    content: "Quantity";
+  }
+  .Shop-table td:nth-child(5):before {
+    content: "Total";
+  }
+  .Shop-table td:nth-child(6):before {
+    content: "Remove";
+  }
+}

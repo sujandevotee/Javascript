@@ -1,0 +1,85 @@
+body {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 90vh;
+    background-image: url("https://wallpapers.com/images/hd/bookshelf-pictures-fh2dc9eobbm3s9b6.jpg");
+}
+
+.container {
+    max-width: 400px;
+    width: 500px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9b0;
+    font-size: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    height: 35px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+span {
+    color: #0056b3;
+    cursor: pointer;
+}
+
+.login-link {
+    text-align: center;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+}
+.forget {
+    text-align: center;
+    cursor: pointer;
+}
+.forget_pass label{
+    padding-top: 10px;
+}
+.forget_pass input::placeholder{
+    padding-left: 10px;
+}
+.register-link {
+    text-align: center;
+}
